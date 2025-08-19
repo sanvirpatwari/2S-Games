@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2S Games — Official Site</title>
+  <meta name="description" content="2S Games is an indie studio crafting small, stylish games with big heart. Check out our latest releases, devlogs, and press info." />
+  <meta property="og:title" content="2S Games — Official Site" />
+  <meta property="og:description" content="Indie studio crafting small, stylish games with big heart." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.ico" />
+  <style>
+    :root{
+      --bg:#0b0d10; --panel:#10141a; --muted:#8091a7; --text:#e6eef7; --accent:#72e0a8; --accent-2:#6ab0ff; --warn:#ffcf6a;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0d10,#0b0d10 60%,#0f1319);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92vw);margin-inline:auto}
+    header{position:sticky;top:0;background:rgba(11,13,16,.7);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid #1b2330;z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 210deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#07130d;font-weight:900;box-shadow:var(--shadow)}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{padding:8px 10px;border-radius:10px}
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06120c;font-weight:700;padding:10px 14px;border-radius:12px;box-shadow:var(--shadow);border:0}
+    .cta:hover{transform:translateY(-1px)}
+    .hero{padding:64px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;color:#0a1410;background:linear-gradient(90deg,var(--accent),var(--warn));padding:6px 10px;border-radius:999px;font-weight:700}
+    .title{font-weight:900;font-size:clamp(32px,6vw,54px);line-height:1.05;margin:14px 0}
+    .subtitle{color:var(--muted);font-size:clamp(16px,2.6vw,20px)}
+    .card{background:radial-gradient(120% 120% at 0% 0%,#121923 10%,#0f141b 60%);border:1px solid #1d2533;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .hero-art{border-radius:var(--radius);overflow:hidden;border:1px solid #1b2330}
+    .grid{display:grid;gap:20px}
+    .games{padding:30px 0 10px}
+    .grid.games-list{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .game{position:relative;overflow:hidden}
+    .pill{position:absolute;top:12px;left:12px;background:#0b1320cc;color:#d7e8ff;border:1px solid #21324b;border-radius:999px;padding:4px 10px;font-size:12px}
+    .game .body{padding:12px}
+    .game h3{margin:6px 0 2px}
+    .meta{color:var(--muted);font-size:14px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #223047;padding:10px 12px;border-radius:12px;background:#0e1622}
+    .btn.primary{border:none;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06120c;font-weight:800}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:34px 0 14px}
+    .section-title h2{margin:0;font-size:28px}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .kpi{padding:18px;border-radius:16px;background:#0b121acc;border:1px solid #1b2330;text-align:center}
+    .kpi strong{font-size:28px;display:block}
+    .flex{display:flex;gap:20px}
+    .about{padding:10px 0 40px}
+    .about .flex{flex-wrap:wrap}
+    .about .card{flex:2;min-width:260px}
+    .press{flex:1;min-width:240px}
+    .press a{display:block;padding:10px;border:1px dashed #2a394f;border-radius:12px;margin-top:10px;text-align:center}
+    .newsletter{padding:30px 0}
+    form.news{display:flex;gap:10px;flex-wrap:wrap}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #223047;background:#0e1622;color:var(--text)}
+    footer{border-top:1px solid #1b2330;margin-top:40px}
+    .foot{padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted)}
+    .social{display:flex;gap:12px}
+    .social a{padding:8px 10px;border:1px solid #223047;border-radius:999px}
+    .tag{color:#b0c5ff}
+    .hidden{display:none}
+
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr; padding-top:32px}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#top" aria-label="2S Games home">
+          <span class="logo">2S</span>
+          <span>2S Games</span>
+        </a>
+        <div class="menu" role="navigation" aria-label="Primary">
+          <a href="#games">Games</a>
+          <a href="#about">About</a>
+          <a href="#devlog">Devlog</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#newsletter">Wishlist + Updates</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div>
+        <span class="badge">🍀 New: Demo out now</span>
+        <h1 class="title">Small studio. Big vibes. <span class="tag">#2SGames</span></h1>
+        <p class="subtitle">We craft compact, stylish games with satisfying feel, tight controls, and cozy atmospheres. Built in spare hours, polished with love.</p>
+        <div class="btns" style="margin-top:18px">
+          <a class="btn primary" href="#games">Play our games</a>
+          <a class="btn" href="#devlog">Read the devlog</a>
+        </div>
+        <div class="grid kpis" style="margin-top:22px">
+          <div class="kpi"><strong>2</strong><span>Shipped games</span></div>
+          <div class="kpi"><strong>1</strong><span>In development</span></div>
+          <div class="kpi"><strong>5k+</strong><span>Players</span></div>
+          <div class="kpi"><strong>✉︎</strong><span>Join our newsletter</span></div>
+        </div>
+      </div>
+      <div class="hero-art card">
+        <img src="/assets/hero-keyart.jpg" alt="Key art collage from 2S Games titles" />
+      </div>
+    </section>
+
+    <section id="games" class="games container">
+      <div class="section-title">
+        <h2>Games</h2>
+        <a class="btn" href="#contact">Press & keys →</a>
+      </div>
+      <div class="grid games-list">
+        <!-- Game 1 -->
+        <article class="game card">
+          <span class="pill">Released</span>
+          <img src="/assets/games/game1-cover.jpg" alt="Game One cover art" />
+          <div class="body">
+            <h3>Midnight Drifter</h3>
+            <p class="meta">Arcade racing • PC • Controller support</p>
+            <p>Drift neon streets, chain boosts, and chase high scores in a minimalist city that sleeps by day and roars by night.</p>
+            <div class="btns">
+              <a class="btn primary" href="#">Play Demo</a>
+              <a class="btn" href="#">Steam</a>
+              <a class="btn" href="#">itch.io</a>
+              <a class="btn" href="#">Trailer</a>
+            </div>
+          </div>
+        </article>
+        <!-- Game 2 -->
+        <article class="game card">
+          <span class="pill">In Dev</span>
+          <img src="/assets/games/game2-cover.jpg" alt="Game Two cover art" />
+          <div class="body">
+            <h3>Star Garden</h3>
+            <p class="meta">Cozy sim • PC & Mobile • 2026</p>
+            <p>Plant constellations, harvest stardust, and restore a sky broken into pieces. Soft music, soft colors, soft chaos.</p>
+            <div class="btns">
+              <a class="btn primary" href="#newsletter">Wishlist</a>
+              <a class="btn" href="#devlog">Follow Devlog</a>
+            </div>
+          </div>
+        </article>
+        <!-- Game 3 -->
+        <article class="game card">
+          <span class="pill">Released</span>
+          <img src="/assets/games/game3-cover.jpg" alt="Game Three cover art" />
+          <div class="body">
+            <h3>Pulse Runner</h3>
+            <p class="meta">Endless runner • Android • Haptic</p>
+            <p>Dodge to the beat in a synesthetic runner where obstacles dance to your playlist.</p>
+            <div class="btns">
+              <a class="btn primary" href="#">Google Play</a>
+              <a class="btn" href="#">itch.io</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <div class="section-title"><h2>About 2S Games</h2></div>
+      <div class="flex">
+        <div class="card">
+          <p>Hi! We’re <strong>2S Games</strong>, a tiny indie studio based in Bangladesh. We prototype fast, iterate hard, and sweat the tiny details that make games feel great in the hands.</p>
+          <ul>
+            <li>🛠️ Tools: Unity, Unreal (learning!), Aseprite, Blender</li>
+            <li>🎵 Vibes: synthwave, lo-fi beats, rainy nights</li>
+            <li>🎯 Pillars: feel first, clear goals, smart scope</li>
+          </ul>
+          <p>We love collaborating with musicians, pixel artists, and fellow tinkerers. If that’s you, let’s chat!</p>
+        </div>
+        <aside class="press card">
+          <h3>Press Kit</h3>
+          <p class="meta">Logos, screenshots, factsheet</p>
+          <a href="/press/2s-presskit.zip">Download press kit</a>
+          <a href="mailto:press@2sgames.studio">Request review key</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="devlog" class="container">
+      <div class="section-title"><h2>Devlog</h2><a class="btn" href="#">All posts →</a></div>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <article class="card">
+          <img src="/assets/devlog/roadmap.jpg" alt="Roadmap whiteboard" />
+          <div class="body">
+            <h3>Roadmap: Star Garden</h3>
+            <p class="meta">Aug 2025 • 4 min read</p>
+            <p>Scope locked, milestones set, risks noted. Here’s how we’re tackling vertical slice → alpha → demo.</p>
+            <a class="btn" href="#">Read</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/assets/devlog/feel-first.jpg" alt="Controller on desk" />
+          <div class="body">
+            <h3>Design Pillars: Feel First</h3>
+            <p class="meta">Jul 2025 • 3 min read</p>
+            <p>From input buffering to camera easing, the tiny choices that make movement feel buttery.</p>
+            <a class="btn" href="#">Read</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/assets/devlog/tools.jpg" alt="Laptop with editor" />
+          <div class="body">
+            <h3>Our Toolchain in 2025</h3>
+            <p class="meta">Jun 2025 • 5 min read</p>
+            <p>Keeping builds small, iterations fast, and crashes rare with a minimal stack.</p>
+            <a class="btn" href="#">Read</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="newsletter" class="newsletter container">
+      <div class="section-title"><h2>Wishlist & Updates</h2></div>
+      <div class="card">
+        <p>Get build drops, devlog posts, and limited playtest invites. No spam, ever.</p>
+        <form class="news" action="https://formspree.io/f/your-id" method="POST">
+          <label class="hidden" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@player.gg" required />
+          <button class="cta" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="padding:20px 0 30px">
+      <div class="section-title"><h2>Contact</h2></div>
+      <div class="grid" style="grid-template-columns:1.2fr .8fr">
+        <form class="card" action="https://formspree.io/f/your-id" method="POST">
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="topic">Topic</label>
+              <input id="topic" name="topic" placeholder="Press / Collab / Support" />
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+          </div>
+          <button class="cta" type="submit" style="margin-top:10px">Send</button>
+        </form>
+        <aside class="card">
+          <h3>Reach us</h3>
+          <p class="meta">We reply in 1–3 days.</p>
+          <p>✉︎ <a href="mailto:hello@2sgames.studio">hello@2sgames.studio</a><br/>🐦 <a href="#">@2SGames</a><br/>🎮 <a href="#">Steam Page</a> • <a href="#">itch.io</a></p>
+          <p>📍 Dhaka, Bangladesh</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> 2S Games. All rights reserved.</div>
+      <div class="social">
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="Discord">Discord</a>
+        <a href="#" aria-label="Steam">Steam</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+	
